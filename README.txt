@@ -1,11 +1,9 @@
+NB: This project has been discontinued and is only kept for historic reasons.
 
 ---------------------------------------
 -
 - PHP HoP - PHP Honeypot Project
 - Copyright oudot@rstack.org 2005-2006
--
-- contact: oudot@rstack.org
-- web:     http://rstack.org/phphop/
 -
 - For the latest version, go to http://www.nz-honeynet.org/phphop
 -
@@ -41,9 +39,9 @@ the official release.
  AUTHORS
  =======
 
-Francois Ropert <Francois.ROPERT@supinfo.com> - Fixed "libsystem.php"
-Jamie Riden     <jamesr@europe.com> - Developer (hiphop.php modifications)
-Laurent Oudot   <oudot@rstack.org>  - Creator/Developer
+Francois Ropert
+Jamie Riden
+Laurent Oudot
 
 
  VERSION
@@ -58,15 +56,6 @@ It contains a PHP library and some PHP modules :
 - webmail
 - hiphop
 Logs can be written on local disk, sent by email, or logged to mysql.
-
-
- MORE INFO
- =========
-
-For more information about PHP HoP (goals, etc), go to http://rstack.org/phphop/
-
-See papers/php-honeypot-draft.pdf and papers/mambo-exploit-obfuscated.pdf for more
-info - please remember this is a draft document and is waiting for comments.
 
 
  REQUIREMENTS
