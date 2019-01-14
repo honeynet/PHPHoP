@@ -1,0 +1,8 @@
+Debian:
+
+apt-get install php4 php4-mysql apache mysql-server
+
+/etc/init.d/apache restart
+
+cd /var/www ; ln -s /home/jriden/new/phphop-0.5.1/modules/hiphop .
+

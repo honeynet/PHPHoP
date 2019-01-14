@@ -1,0 +1,2 @@
+
+Warning: This modules has 2 config.php to check.

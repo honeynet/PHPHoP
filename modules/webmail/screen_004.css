@@ -1,0 +1,135 @@
+/**
+ * $Horde: horde/themes/bluewhite/screen.css,v 1.18.6.6 2005/04/29 15:30:31 chuck Exp $
+ */
+
+body {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    background-color: #fff;
+}
+.headerbox {
+    border-left: 1px solid #66a;
+    border-right: 1px solid #66a;
+    border-bottom: 1px solid #66a;
+}
+.selected {
+    background-color: #C6D3FF;
+}
+.header {
+    color: #fff;
+    background-color: #66a;
+    border-bottom: 1px solid #000;
+}
+.header a {
+    color: #fff;
+}
+.header a:hover, a.header:hover {
+    color: yellow;
+    text-decoration: none;
+}
+a.header {
+    border-bottom: 0;
+    background-color: transparent;
+}
+a.fixed {
+    color: #339;
+}
+.light {
+    color: #333;
+}
+.smallheader {
+    color: #fff;
+    background-color: #66a;
+    font-family: Verdana,Helvetica,sans-serif;
+}
+a.smallheader:hover {
+    color: #cce;
+    text-decoration: none;
+}
+.control {
+    background-color: #ddd;
+}
+
+/* Form styles. */
+input, select, textarea {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000;
+    background-color: #f3f3f9;
+    border: 1px solid #669;
+}
+input:focus, textarea:focus {
+    background-color: #fff;
+    border: 1px solid #99f;
+}
+.button, .button:focus {
+    color: #fff;
+    background-color: #339;
+    border-bottom: 1px solid #333;
+    border-right: 1px solid #000;
+    border-left: 1px solid #C4C4B8;
+    border-top: 1px solid #C4C4B8;
+    -moz-border-radius: 5px;
+}
+.button:hover {
+    background-color: #66a;
+}
+
+/* Alternating styles. item0, item1 are deprecated. */
+.rowEven, .item0 {
+    background-color: #eee;
+}
+.rowOdd, .item1 {
+    background-color: #fff;
+}
+
+/* Menu styles. */
+#menu {
+    background-color: #66a;
+    border-bottom: 2px solid #000;
+}
+#menu a {
+    color: #fff;
+}
+#menu a.current {
+    background-color: #339;
+    border-bottom: 1px solid #aac;
+    border-right: 1px solid #aac;
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;
+}
+
+/* Sidebar styles. */
+body.sidebar {
+    background-color: #fff;
+}
+#sidebarPanel {
+    border-right: 1px solid #006;
+    border-bottom: 1px solid #006;
+    background-color: #e9e9ff;
+}
+#sidebarPanel a {
+    color: #006;
+    border: 1px solid #e9e9ff;
+}
+#sidebarPanel a:hover {
+    color: #006;
+    background-color: #ccc;
+    border: 1px solid #000;
+    text-decoration: none;
+}
+
+/* Tab styles. */
+.tabset {
+    border-bottom: 1px solid #66a;
+}
+.tabset li a {
+    border-bottom: 1px solid #66a;
+}
+.tabset li a.activeTab {
+    background: #66a;
+    color: #fff;
+}
+.tabset li a.activeTab:hover {
+    background: #66a;
+    color: #fff;
+}

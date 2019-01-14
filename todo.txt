@@ -1,0 +1,7 @@
+Laurent:"My goal is to publish a version 1.0 of PHPHoP in may or june, with :
+- a real documentation (a nice pdf),
+- some cool modules easy to install,
+- the sql logging capability,
+- source code audited (so that we don't add more risks),
+- a cool php frontend to browse the logs
+..."

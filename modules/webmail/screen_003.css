@@ -1,0 +1,123 @@
+/**
+ * $Horde: imp/themes/screen.css,v 1.2.2.2 2005/01/27 00:08:00 jan Exp $
+ */
+
+/* Message list table styles. */
+.messageList {
+    table-layout: fixed;
+    width: 100%;
+}
+.messageList tr {
+    height: 20px;
+}
+.messageList th {
+    text-align: left;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.messageList td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.messageList img {
+    vertical-align: middle;
+}
+
+/* Style for div that fixes KHTML browsers. */
+.ohide {
+    overflow: hidden;
+}
+
+/* Message styles. */
+#html-message td {
+    padding: 0px;
+}
+
+/* Legend styles. */
+.mailboxLegend {
+    padding: 5px;
+}
+.mailboxLegend li {
+    color: black;
+    font-family: Geneva,Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    list-style: none;
+    display: inline;
+}
+.mailboxLegend li div {
+    float: left;
+    margin-right: 1em;
+}
+.mailboxLegend li div div {
+    padding: 2px;
+    border: 1px solid #666666;
+    margin-right: .3em;
+}
+
+.composebody {
+    font-family: Courier New, Monospace;
+    font-size: 12px;
+}
+.folders {
+    font-size: 11px;
+}
+.folderselect {
+    padding-top: 5px;
+}
+.seen {
+    background-color: white;
+}
+.seen:hover {
+    background-color: #f3f3f3;
+}
+.seen-over {
+    background-color: #f3f3f3;
+}
+.deleted {
+    background-color: #999999;
+}
+.deleted:hover {
+    background-color: #777777;
+}
+.deleted-over {
+    background-color: #777777;
+}
+.important {
+    background-color: #ffcccc;
+}
+.important:hover {
+    background-color: #ffaaaa;
+}
+.important-over {
+    background-color: #ffaaaa;
+}
+.unseen {
+    background-color: #eeeeff;
+}
+.unseen:hover {
+    background-color: #ccccff;
+}
+.unseen-over {
+    background-color: #ccccff;
+}
+.answered {
+    background-color: #ccffcc;
+}
+.answered:hover {
+    background-color: #99ee99;
+}
+.answered-over {
+    background-color: #99ee99;
+}
+.folderunsub {
+    font-style: italic;
+}
+.quotawarn {
+    color: black;
+    background-color: yellow;
+}
+.quotaalert {
+    color: white;
+    background-color: red;
+}
